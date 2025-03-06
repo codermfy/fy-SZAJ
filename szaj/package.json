@@ -1,0 +1,44 @@
+{
+  "name": "szaj",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "vite --mode dev --host",
+    "serve:prod": "vite --mode prod --host",
+    "build:dev": "vite build --mode dev",
+    "build:prod": "vite build --mode prod",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "crypto-js": "^3.3.0",
+    "pdfjs-dist": "2.16.105",
+    "pinia": "^2.2.4",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "vant": "^4.9.8",
+    "vconsole": "^3.15.1",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5",
+    "weixin-js-sdk": "^1.6.5"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.17.0",
+    "@vant/auto-import-resolver": "^1.2.1",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vue/tsconfig": "^0.5.1",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
+    "npm-run-all2": "^7.0.1",
+    "sass": "^1.80.4",
+    "typescript": "~5.6.0",
+    "unplugin-auto-import": "^0.18.3",
+    "unplugin-vue-components": "^0.27.4",
+    "vite": "^5.4.10",
+    "vue-tsc": "^2.1.6"
+  }
+}
