@@ -25,6 +25,25 @@ const router = createRouter({
       component: () => import("../views/sjlist.vue"),
       meta: {
         index: 2,
+        title:'申请列表'
+      },
+    },
+    {
+      path: "/sjxx",
+      name: "sjxx",
+      component: () => import("../views/sjxx.vue"),
+      meta: {
+        index: 3,
+        title:'审计信息详情'
+      },
+    },
+    {
+      path: "/exportList",
+      name: "exportList",
+      component: () => import("../views/exportList.vue"),
+      meta: {
+        index: 4,
+        title:'任务列表'
       },
     },
     {

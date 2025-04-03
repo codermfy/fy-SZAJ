@@ -127,10 +127,9 @@ const onSearch = () => {
   });
 };
 const getCaseList = async (options?: Number) => {
-  // let IDNumber =
-  //   "a430e62f76cd317cf81c406aeac41a3b2edbba69eda0fef98afeef3b5b7adcf9";
-  // IDNumber = "799053e6b2eb0db09818a5660a3c0677d77c5635797283b6eb03d5151430658d";
   let IDNumber = userStore.userInfo.identityId;
+  // IDNumber = "a430e62f76cd317cf81c406aeac41a3b2edbba69eda0fef98afeef3b5b7adcf9";
+  // IDNumber = "799053e6b2eb0db09818a5660a3c0677d77c5635797283b6eb03d5151430658d";
 
   let res = await caseApi.getCaseList({
     type: options === 1 ? 1 : 2,
@@ -175,12 +174,12 @@ const changeDSR = () => {
 const toDetail = (item) => {
   caseStore.setCaseItem(item);
   if (type.value === "审计人员") {
-    router.push('/sjlist')
+    router.push("/sjlist");
   } else {
     commonApi.statistics({
       method: "dsrView",
       xm: userStore.userInfo.name,
-      zjhm:userStore.userInfo.identityId,
+      zjhm: userStore.userInfo.identityId,
       fydm: item.fydm,
       ajbh: item.caseBh,
       date: formatDate(Date.now()),

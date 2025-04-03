@@ -5,6 +5,7 @@ export const useCaseStore = defineStore('case', {
   state: () => {
     return {
       caseItem: {} as CaseItem,
+      sjItem:{},
       tempCase:{},
       caseForm:{},
     }
@@ -12,6 +13,9 @@ export const useCaseStore = defineStore('case', {
   actions: {
     setCaseItem(val:CaseItem) {
       this.caseItem = val
+    },
+    setSjItem(val:any){
+      this.sjItem=val;
     },
     setTempCase(val:any){
       this.tempCase=val;

@@ -111,3 +111,46 @@ export const copyObj=(obj:any = {})=> {
   }
   return newObj
 };
+
+export const copyToClipboard=(text: string)=>{
+  // 现代浏览器：使用 Clipboard API
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        console.log('链接已复制到剪贴板');
+        // alert('链接已复制到剪贴板');
+      })
+      .catch((err) => {
+        console.error('复制失败（Clipboard API）:', err);
+        fallbackCopyToClipboard(text); // 降级方案
+      });
+  } else {
+    // 旧版浏览器：使用 document.execCommand('copy')
+    fallbackCopyToClipboard(text);
+  }
+}
+
+// 降级方案：使用 document.execCommand('copy')
+export const fallbackCopyToClipboard=(text:string) =>{
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed'; // 避免页面滚动
+  textarea.style.opacity = '0'; // 隐藏 textarea
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    const success = document.execCommand('copy');
+    if (success) {
+      console.log('链接已复制到剪贴板');
+      // alert('链接已复制到剪贴板');
+    } else {
+      throw new Error('复制失败');
+    }
+  } catch (err) {
+    console.error('复制失败（execCommand）:', err);
+    // alert('复制失败，请手动复制链接');
+  } finally {
+    document.body.removeChild(textarea);
+  }
+}

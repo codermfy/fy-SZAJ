@@ -449,7 +449,7 @@ const getCaseDetails = async () => {
     forbidClick: true,
     message: "加载中……",
   });
-  let partyIDNumber =userStore.userInfo.identityId;;
+  let partyIDNumber =userStore.userInfo.identityId;
   let res = await caseApi.getCaseDetails({
     type: caseStore.caseItem.type,
     bh: caseStore.caseItem.bh,

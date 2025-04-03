@@ -24,9 +24,9 @@ router.beforeEach((to, from) => {
     <div class="animation">
       <RouterView v-slot="{ Component }">
         <Transition :name="transitionName">
-          <!-- <KeepAlive :exclude="['previewPdf','announcement','ajsb','ajxx','confirm','submitted']"> -->
+          <KeepAlive :include="['sjlist']">
             <component :is="Component"></component>
-          <!-- </KeepAlive> -->
+          </KeepAlive>
         </Transition>
       </RouterView>
     </div>
